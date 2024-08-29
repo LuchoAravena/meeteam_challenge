@@ -1,24 +1,40 @@
-# README
+# Meeteam Challenge
+This is an API for managing products. It allows searching, sorting and paginating products.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to install
+1_ Clone the repository
+-git clone https://github.com/LuchoAravena/meeteam_challenge.git
 
-Things you may want to cover:
+2_ Install dependencies
+-bundle install
 
-* Ruby version
+3_ Setup database
+-rails db:create
+-rails db:migrate
+-rails db:seed
 
-* System dependencies
+4_ Start server
+-rails s
 
-* Configuration
 
-* Database creation
+###Endpoints
 
-* Database initialization
+GET /api/v1/products
+Obtain all products, paginated with a default of 10 products per page.
+Example: http://localhost:3000/api/v1/products
 
-* How to run the test suite
+GET /api/v1/products?query=product
+Search products by name or description with case-insensitive matching.
+Example: http://localhost:3000/api/v1/products?query=macbook
 
-* Services (job queues, cache servers, search engines, etc.)
+GET /api/v1/products?sort_by=price&order=asc
+Sort products by price in ascending or descending order.
+Example: http://localhost:3000/api/v1/products?sort_by=price&order=asc
 
-* Deployment instructions
+GET /api/v1/products?page=x&per_page=xx
+Paginate products. Replace x with the page number and xx with the number of products per page.
+Example: http://localhost:3000/api/v1/products?page=1&per_page=20
 
-* ...
+GET /api/v1/products?sort_by=created_at&order=desc
+Sort products by creation date in ascending or descending order.
+Example: http://localhost:3000/api/v1/products?sort_by=created_at&order=desc

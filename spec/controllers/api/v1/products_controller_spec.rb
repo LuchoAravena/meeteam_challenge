@@ -3,12 +3,11 @@ require 'rails_helper'
 RSpec.describe Api::V1::ProductsController, type: :controller do
   before(:each) do
     @products = [
-      Product.create(name: "iPhone 14", description: "Latest model with advanced features", price: 799.99),
-      Product.create(name: "MacBook Pro", description: "High-performance laptop for professionals", price: 1999.99),
-      Product.create(name: "AirPods Pro", description: "Noise-cancelling wireless earbuds", price: 249.99),
+      Product.create(name: "iPhone 14", description: "Latest model with advanced features", price: 798.33),
+      Product.create(name: "MacBook Pro", description: "High-performance laptop for professionals", price: 1952.45),
+      Product.create(name: "AirPods Pro", description: "Noise-cancelling wireless earbuds", price: 242.12),
       Product.create(name: "Apple Watch Series 8", description: "Smartwatch with health tracking", price: 399.99),
-      Product.create(name: "iPad Pro", description: "Powerful tablet with M1 chip", price: 1099.99),
-      # Add more products if needed
+      Product.create(name: "iPad Pro", description: "Powerful tablet with M1 chip", price: 1099.98),
     ]
   end
 
@@ -48,7 +47,6 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it "returns products sorted by created_at in ascending order" do
-        # Ensure products are created in a specific order
         @products.first.update(created_at: 1.day.ago)
         @products.last.update(created_at: Time.current)
 
@@ -64,7 +62,6 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it "returns products sorted by created_at in descending order" do
-        # Ensure products are created in a specific order
         @products.first.update(created_at: 1.day.ago)
         @products.last.update(created_at: Time.current)
 
